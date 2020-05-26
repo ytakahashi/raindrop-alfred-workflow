@@ -1,3 +1,3 @@
-module github.com/ytakahashi/raindrop-alfread-workflow
+module github.com/ytakahashi/raindrop-alfred-workflow
 
 go 1.14

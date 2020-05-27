@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/ytakahashi/raindrop-alfred-workflow/alfred"
 	"github.com/ytakahashi/raindrop-alfred-workflow/raindrop"
 )
 
@@ -17,6 +18,7 @@ func main() {
 	if err != nil {
 		fmt.Print(err)
 	} else {
-		fmt.Printf("%+v", *res)
+		jsonString := alfred.ConvertToAlfredJSON(*res)
+		fmt.Println(jsonString)
 	}
 }

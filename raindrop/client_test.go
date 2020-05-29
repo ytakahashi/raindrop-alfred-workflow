@@ -79,6 +79,55 @@ func Test_GetRaindrops(t *testing.T) {
 	}
 }
 
+func Test_GetCollections(t *testing.T) {
+	// Given
+	collection1 := Collection{
+		ID:    1,
+		Title: "Test 1",
+	}
+	collection2 := Collection{
+		ID:    2,
+		Title: "Test 2",
+	}
+	expected := Collections{
+		Result: true,
+		Items:  []Collection{collection1, collection2},
+	}
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		res, err := json.Marshal(expected)
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(res)
+	}))
+
+	defer ts.Close()
+
+	// When
+	sut := createTestClient(ts, t)
+
+	// Then
+	actual, err := sut.GetCollections()
+	if err != nil {
+		t.Errorf("error: %v", err)
+	}
+	if actual.Result != true {
+		t.Error("actual.Result")
+	}
+	if len(actual.Items) != 2 {
+		t.Errorf("Unexpected length: %d", len(actual.Items))
+	}
+	if !reflect.DeepEqual(actual.Items[0], collection1) {
+		t.Errorf("Unexpected: %v, %v", actual.Items[0], collection1)
+	}
+	if !reflect.DeepEqual(actual.Items[1], collection2) {
+		t.Errorf("Unexpected: %v, %v", actual.Items[1], collection2)
+	}
+}
+
 func createTestClient(ts *httptest.Server, t *testing.T) Client {
 	u, err := url.Parse(ts.URL)
 	if err != nil {

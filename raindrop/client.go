@@ -17,6 +17,25 @@ type Client struct {
 	accessToken string
 }
 
+// Collection represents get collections api response item
+type Collection struct {
+	ID         uint32 `json:"_id"`
+	Color      string `json:"color"`
+	Count      uint32 `json:"count"`
+	Created    string `json:"created"`
+	LastUpdate string `json:"lastUpdate"`
+	Expanded   bool   `json:"expanded"`
+	Public     bool   `json:"public"`
+	Title      string `json:"title"`
+	View       string `json:"view"`
+}
+
+// Collections represents get collections api response
+type Collections struct {
+	Result bool         `json:"result"`
+	Items  []Collection `json:"items"`
+}
+
 // Raindrop represents get raindrops api response item
 type Raindrop struct {
 	Tags    []string `json:"tags"`
@@ -48,6 +67,27 @@ func NewClient(accessToken string) (*Client, error) {
 	}
 
 	return &client, nil
+}
+
+// GetCollections call Get root collections API (ref. https://developer.raindrop.io/v1/collections/methods#get-root-collections)
+func (c *Client) GetCollections() (*Collections, error) {
+	path := "/rest/v1/collections"
+	req, err := c.newRequest("GET", path)
+	if err != nil {
+		return nil, err
+	}
+
+	response, err := c.httpClient.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	r := new(Collections)
+	if err := parseResponse(response, 200, &r); err != nil {
+		return nil, err
+	}
+
+	return r, nil
 }
 
 // GetRaindrops call Get raindrops API (refs. https://developer.raindrop.io/v1/raindrops/multiple#get-raindrops)

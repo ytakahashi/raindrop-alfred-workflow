@@ -2,6 +2,7 @@ package alfred
 
 import (
 	"encoding/json"
+	"fmt"
 
 	"github.com/ytakahashi/raindrop-alfred-workflow/raindrop"
 )
@@ -21,11 +22,11 @@ type Items struct {
 
 var emptyItems = "{\"items\":[]}"
 
-// ConvertToAlfredJSON converts a TimeStruct to JSON string
-func ConvertToAlfredJSON(raindrops raindrop.Raindrops) string {
+// ConvertToAlfredJSONFromCollections creates json string from Collections
+func ConvertToAlfredJSONFromCollections(collections raindrop.Collections) string {
 	items := []Item{}
-	for _, r := range raindrops.Items {
-		item := newItemFrom(r)
+	for _, r := range collections.Items {
+		item := newItemFromCollection(r)
 		items = append(items, item)
 	}
 
@@ -37,7 +38,31 @@ func ConvertToAlfredJSON(raindrops raindrop.Raindrops) string {
 	return string(json)
 }
 
-func newItemFrom(raindrop raindrop.Raindrop) Item {
+// ConvertToAlfredJSONFromRaindrops creates json string from Raindrops
+func ConvertToAlfredJSONFromRaindrops(raindrops raindrop.Raindrops) string {
+	items := []Item{}
+	for _, r := range raindrops.Items {
+		item := newItemFromRaindrop(r)
+		items = append(items, item)
+	}
+
+	json, err := json.Marshal(Items{Items: items})
+	if err != nil {
+		return emptyItems
+	}
+
+	return string(json)
+}
+
+func newItemFromCollection(collection raindrop.Collection) Item {
+	return Item{
+		UID:   fmt.Sprint(collection.ID),
+		Title: collection.Title,
+		Arg:   fmt.Sprint(collection.ID),
+	}
+}
+
+func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
 	return Item{
 		UID:      raindrop.Title,
 		Title:    raindrop.Title,

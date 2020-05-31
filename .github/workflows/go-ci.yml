@@ -29,10 +29,10 @@ jobs:
         run: go get -v -t -d ./...
       - name: Test code
         run: go test -v ./...
-    - name: Create package
-      run: make
-    - name: Archive generated package
-      uses: actions/upload-artifact@v1
-      with:
-        name: raindrop-alfred-workflow
-        path: RaindropWorkflow.alfredworkflow
+      - name: Create package
+        run: make
+      - name: Archive generated package
+        uses: actions/upload-artifact@v1
+        with:
+          name: raindrop-alfred-workflow
+          path: RaindropWorkflow.alfredworkflow

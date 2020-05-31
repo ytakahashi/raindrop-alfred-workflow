@@ -10,8 +10,8 @@ on:
 
 jobs:
 
-  Test:
-    name: Test
+  ci:
+    name: ci
     runs-on: macos-latest
     strategy:
       matrix:

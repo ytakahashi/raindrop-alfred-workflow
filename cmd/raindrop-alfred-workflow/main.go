@@ -4,8 +4,8 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/ytakahashi/raindrop-alfred-workflow/alfred"
-	"github.com/ytakahashi/raindrop-alfred-workflow/raindrop"
+	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/alfred"
+	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
 )
 
 func main() {

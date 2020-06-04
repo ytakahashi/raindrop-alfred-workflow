@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/ytakahashi/raindrop-alfred-workflow/raindrop"
+	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
 )
 
 // Item is an alfred item (https://www.alfredapp.com/help/workflows/inputs/script-filter/json/)

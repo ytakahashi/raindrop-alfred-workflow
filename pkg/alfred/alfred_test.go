@@ -3,7 +3,7 @@ package alfred
 import (
 	"testing"
 
-	"github.com/ytakahashi/raindrop-alfred-workflow/raindrop"
+	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
 )
 
 func Test_ConvertToAlfredJSONFromRaindrop(t *testing.T) {

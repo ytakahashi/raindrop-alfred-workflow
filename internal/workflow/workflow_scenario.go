@@ -1,8 +1,10 @@
 package workflow
 
 import (
+	"errors"
 	"flag"
 	"fmt"
+	"os"
 )
 
 // Scenario represents a scenario
@@ -28,7 +30,12 @@ const (
 // NewScenario returns scenario
 func NewScenario() Scenario {
 	parseFlag()
-	return validateAndDetermineScenario()
+	s, e := validateAndDetermineScenario()
+	if e != nil {
+		fmt.Println(e)
+		os.Exit(1)
+	}
+	return *s
 }
 
 // NewScenarioRunner returns scenario runner
@@ -78,14 +85,45 @@ var (
 
 func parseFlag() {
 	flag.StringVar(&accessToken, "accessToken", "", "access token to call raindrop api")
-	flag.BoolVar(&raindrops, "raindrops", false, "calls Get raindrops api or not")
-	flag.BoolVar(&collections, "collections", false, "calls Get collections api or not")
-	flag.BoolVar(&tags, "tags", false, "calls Get tags api or not")
+	flag.BoolVar(&raindrops, "raindrops", false, "boolean flag whether to call Get raindrops api or not. defaults to false")
+	flag.BoolVar(&collections, "collections", false, "boolean flag whether to call Get collections api or not. defaults to false")
+	flag.BoolVar(&tags, "tags", false, "boolean flag whether to call Get tags api or not. defaults to false")
 	flag.StringVar(&collectionID, "collectionId", "", "collection id used to call raindrop api")
 	flag.StringVar(&tag, "tag", "", "tag value used to call raindrop api")
 	flag.Parse()
 }
 
-func validateAndDetermineScenario() Scenario {
-	return GetRaindropsByTag
+func validateAndDetermineScenario() (*Scenario, error) {
+	var s Scenario
+	if accessToken == "" {
+		return nil, errors.New("accessToken is required")
+	}
+
+	if raindrops && !tags && !collections {
+		if collectionID != "" && tag != "" {
+			return nil, errors.New("can't specify -collectionId and -tag at the same time")
+		}
+		if collectionID != "" {
+			s = GetRaindropsByCollectionID
+			return &s, nil
+		} else if tag != "" {
+			s = GetRaindropsByTag
+			return &s, nil
+		} else {
+			s = GetRaindrops
+			return &s, nil
+		}
+	}
+
+	if !raindrops && tags && !collections {
+		s = GetTags
+		return &s, nil
+	}
+
+	if !raindrops && !tags && collections {
+		s = GetCollections
+		return &s, nil
+	}
+
+	return nil, errors.New("one of '-raindrops' or '-tags' or '-collections' should be specified")
 }

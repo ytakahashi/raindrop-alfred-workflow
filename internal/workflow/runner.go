@@ -41,13 +41,13 @@ type noopRunner struct{}
 func (r getRaindropScenarioRunner) Run() {
 	client, err := raindrop.NewClient(r.accessToken)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	res, err := client.GetRaindrops("0")
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
@@ -59,13 +59,13 @@ func (r getRaindropScenarioRunner) Run() {
 func (r getRaindropsByCollectionIDScenarioRunner) Run() {
 	client, err := raindrop.NewClient(r.accessToken)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	res, err := client.GetRaindrops(r.collectionID)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
@@ -77,13 +77,13 @@ func (r getRaindropsByCollectionIDScenarioRunner) Run() {
 func (r getCollectionsScenarioRunner) Run() {
 	client, err := raindrop.NewClient(r.accessToken)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	res, err := client.GetCollections()
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
@@ -95,13 +95,13 @@ func (r getCollectionsScenarioRunner) Run() {
 func (r getTagsScenarioRunner) Run() {
 	client, err := raindrop.NewClient(r.accessToken)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	res, err := client.GetTags()
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
@@ -113,13 +113,13 @@ func (r getTagsScenarioRunner) Run() {
 func (r getRaindropsByTagScenarioRunner) Run() {
 	client, err := raindrop.NewClient(r.accessToken)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	res, err := client.GetTaggedRaindrops(r.tag)
 	if err != nil {
-		fmt.Print(err)
+		fmt.Println(err)
 		os.Exit(1)
 	}
 

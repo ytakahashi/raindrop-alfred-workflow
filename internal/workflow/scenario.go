@@ -35,7 +35,7 @@ func NewScenario() Scenario {
 		fmt.Println(e)
 		os.Exit(1)
 	}
-	return *s
+	return s
 }
 
 // NewScenarioRunner returns scenario runner
@@ -93,37 +93,31 @@ func parseFlag() {
 	flag.Parse()
 }
 
-func validateAndDetermineScenario() (*Scenario, error) {
-	var s Scenario
+func validateAndDetermineScenario() (Scenario, error) {
 	if accessToken == "" {
-		return nil, errors.New("accessToken is required")
+		return "", errors.New("accessToken is required")
 	}
 
 	if raindrops && !tags && !collections {
 		if collectionID != "" && tag != "" {
-			return nil, errors.New("can't specify -collectionId and -tag at the same time")
+			return "", errors.New("can't specify '-collectionId' and '-tag' at the same time")
 		}
 		if collectionID != "" {
-			s = GetRaindropsByCollectionID
-			return &s, nil
+			return GetRaindropsByCollectionID, nil
 		} else if tag != "" {
-			s = GetRaindropsByTag
-			return &s, nil
+			return GetRaindropsByTag, nil
 		} else {
-			s = GetRaindrops
-			return &s, nil
+			return GetRaindrops, nil
 		}
 	}
 
 	if !raindrops && tags && !collections {
-		s = GetTags
-		return &s, nil
+		return GetTags, nil
 	}
 
 	if !raindrops && !tags && collections {
-		s = GetCollections
-		return &s, nil
+		return GetCollections, nil
 	}
 
-	return nil, errors.New("one of '-raindrops' or '-tags' or '-collections' should be specified")
+	return "", errors.New("one of '-raindrops' or '-tags' or '-collections' should be specified")
 }

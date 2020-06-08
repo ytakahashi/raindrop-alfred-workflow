@@ -101,8 +101,7 @@ func validateAndDetermineScenario() (Scenario, error) {
 	if raindrops && !tags && !collections {
 		if collectionID != "" && tag != "" {
 			return "", errors.New("can't specify '-collectionId' and '-tag' at the same time")
-		}
-		if collectionID != "" {
+		} else if collectionID != "" {
 			return GetRaindropsByCollectionID, nil
 		} else if tag != "" {
 			return GetRaindropsByTag, nil

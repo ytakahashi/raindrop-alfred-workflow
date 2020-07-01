@@ -105,8 +105,8 @@ func (r getTagsScenarioRunner) Run() {
 		os.Exit(1)
 	}
 
-	// TODO
-	fmt.Println(res)
+	jsonString := alfred.ConvertToAlfredJSONFromTags(*res)
+	fmt.Println(jsonString)
 }
 
 // Run executes getRaindropsByTag Scenario

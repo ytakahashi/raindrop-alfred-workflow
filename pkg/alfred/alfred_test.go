@@ -58,3 +58,28 @@ func Test_ConvertToAlfredJSONFromCollections(t *testing.T) {
 		t.Errorf("assert failed. expect:%v actual:%v", expected, actual)
 	}
 }
+
+func Test_ConvertToAlfredJSONFromTags(t *testing.T) {
+	// When
+	tag1 := raindrop.Tag{
+		ID:    "tag 1",
+		Count: 123,
+	}
+	tag2 := raindrop.Tag{
+		ID:    "tag 2",
+		Count: 456,
+	}
+	tags := raindrop.Tags{
+		Result: true,
+		Items:  []raindrop.Tag{tag1, tag2},
+	}
+
+	// When
+	actual := ConvertToAlfredJSONFromTags(tags)
+
+	// Then
+	expected := `{"items":[{"uid":"tag 1","title":"tag 1","subtitle":"","arg":"tag 1"},{"uid":"tag 2","title":"tag 2","subtitle":"","arg":"tag 2"}]}`
+	if actual != expected {
+		t.Errorf("assert failed. expect:%v actual:%v", expected, actual)
+	}
+}

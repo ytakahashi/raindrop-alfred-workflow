@@ -54,6 +54,22 @@ func ConvertToAlfredJSONFromRaindrops(raindrops raindrop.Raindrops) string {
 	return string(json)
 }
 
+// ConvertToAlfredJSONFromTags creates json string from Tags
+func ConvertToAlfredJSONFromTags(tags raindrop.Tags) string {
+	items := []Item{}
+	for _, t := range tags.Items {
+		item := newItemFromTag(t)
+		items = append(items, item)
+	}
+
+	json, err := json.Marshal(Items{Items: items})
+	if err != nil {
+		return emptyItems
+	}
+
+	return string(json)
+}
+
 func newItemFromCollection(collection raindrop.Collection) Item {
 	return Item{
 		UID:   fmt.Sprint(collection.ID),
@@ -68,5 +84,13 @@ func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
 		Title:    raindrop.Title,
 		SubTitle: raindrop.Excerpt,
 		Arg:      raindrop.Link,
+	}
+}
+
+func newItemFromTag(tag raindrop.Tag) Item {
+	return Item{
+		UID:   fmt.Sprint(tag.ID),
+		Title: tag.ID,
+		Arg:   fmt.Sprint(tag.ID),
 	}
 }

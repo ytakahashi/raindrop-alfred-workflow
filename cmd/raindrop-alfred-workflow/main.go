@@ -1,46 +1,19 @@
 package main
 
 import (
-	"flag"
-	"fmt"
-
-	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/alfred"
-	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
+	"github.com/ytakahashi/raindrop-alfred-workflow/internal/workflow"
 )
 
+/*
+Usage:
+	(cmd) -accessToken {accessToken} -raindrops
+	(cmd) -accessToken {accessToken} -raindrops -collectionId {collection id}
+	(cmd) -accessToken {accessToken} -raindrops -tag {tag name}
+	(cmd) -accessToken {accessToken} -collections
+	(cmd) -accessToken {accessToken} -tags
+*/
 func main() {
-	flag.Parse()
-	accessToken := flag.Arg(0)
-	api := flag.Arg(1)
-
-	if api == "raindrops" {
-		id := flag.Arg(2)
-		getRaindrops(accessToken, id)
-	} else if api == "collections" {
-		getCollections(accessToken)
-	}
-}
-
-func getRaindrops(accessToken, id string) {
-	client, err := raindrop.NewClient(accessToken)
-
-	res, err := client.GetRaindrops(id)
-	if err != nil {
-		fmt.Print(err)
-	} else {
-		jsonString := alfred.ConvertToAlfredJSONFromRaindrops(*res)
-		fmt.Println(jsonString)
-	}
-}
-
-func getCollections(accessToken string) {
-	client, err := raindrop.NewClient(accessToken)
-
-	res, err := client.GetCollections()
-	if err != nil {
-		fmt.Print(err)
-	} else {
-		jsonString := alfred.ConvertToAlfredJSONFromCollections(*res)
-		fmt.Println(jsonString)
-	}
+	scenario := workflow.NewScenario()
+	runner := workflow.NewScenarioRunner(scenario)
+	runner.Run()
 }

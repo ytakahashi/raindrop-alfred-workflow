@@ -16,10 +16,12 @@ When installing this workflow, variable named "accessToken" should be configured
 
 You can obtain your access token to follow [this document](https://developer.raindrop.io/v1/authentication/token). I recommend to use test token because this workflow does not access any data except your account.
 
-Activate Alfred and `⇧⌘R` triggers this workflow.  
+Activate Alfred and `^⌘R` triggers this workflow.  
 
 ![workflow image](./image/workflow_image_1.png)
 
 `Raindrops` calls [Get raindrops API](https://developer.raindrop.io/v1/raindrops/multiple#get-raindrops).
 
 `Collections` calls [Get root collections API](https://developer.raindrop.io/v1/collections/methods#get-root-collections).
+
+`Tags` calls [Get tags API](https://developer.raindrop.io/v1/tags#get-tags).

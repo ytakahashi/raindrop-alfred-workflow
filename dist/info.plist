@@ -8,6 +8,19 @@
 	<string>Tools</string>
 	<key>connections</key>
 	<dict>
+		<key>03442BBF-D1E0-406A-BBCA-12FBE16F9F02</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C46BD3F2-5F1B-4B39-907A-46976110B181</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>0A2287AE-9EED-4768-A224-4801D1A7935B</key>
 		<array>
 			<dict>
@@ -35,6 +48,19 @@
 			</dict>
 		</array>
 		<key>225F85FF-9918-4FE7-90A6-84B3AE15AC2A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C58DFD2-45BA-4B05-B6CE-D1CBCB6E86F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>3B85136C-4E78-432D-9497-1BAB3927F36C</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -78,6 +104,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>0A2287AE-9EED-4768-A224-4801D1A7935B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>617D16A1-B930-46E7-98A9-38F979754A26</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3B85136C-4E78-432D-9497-1BAB3927F36C</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -143,6 +182,31 @@
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
+				<key>sourceoutputuid</key>
+				<string>3F9651B5-DC8E-4050-8ADF-42B6F7D1DF88</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>03442BBF-D1E0-406A-BBCA-12FBE16F9F02</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C46BD3F2-5F1B-4B39-907A-46976110B181</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D178BAE2-6D77-4151-B2C2-6B0B9838D952</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -173,15 +237,28 @@
 				<true/>
 			</dict>
 		</array>
+		<key>D178BAE2-6D77-4151-B2C2-6B0B9838D952</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>617D16A1-B930-46E7-98A9-38F979754A26</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>ytakahashi</string>
 	<key>description</key>
-	<string>Searches nookmarks saved on Raindrop.io</string>
+	<string>Searches bookmarks saved on Raindrop.io</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Raindrop Workflow</string>
+	<string>Raindrop Workflow Dev</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -210,7 +287,7 @@
 				<key>runningsubtext</key>
 				<string>loading...</string>
 				<key>script</key>
-				<string>./raindrop-alfred-workflow $accessToken raindrops 0</string>
+				<string>./raindrop-alfred-workflow -accessToken $accessToken -raindrops</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -245,7 +322,7 @@
 				<key>hotkey</key>
 				<integer>15</integer>
 				<key>hotmod</key>
-				<integer>1179648</integer>
+				<integer>1310720</integer>
 				<key>hotstring</key>
 				<string>R</string>
 				<key>leftcursor</key>
@@ -322,7 +399,7 @@
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"Collections","arg":"collections","subtitle":"searches collections"},{"title":"Raindrops","arg":"raindrops","subtitle":"searches all raindrops"}]</string>
+				<string>[{"title":"Collections","arg":"collections","subtitle":"searches collections"},{"title":"Raindrops","arg":"raindrops","subtitle":"searches all raindrops"},{"title":"Tags","arg":"tags","subtitle":"searches tags"}]</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>subtext</key>
@@ -336,36 +413,6 @@
 			<string>alfred.workflow.input.listfilter</string>
 			<key>uid</key>
 			<string>D0910FC2-3A69-48A4-858D-95831D63D7D3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>raindrops</string>
-						<key>outputlabel</key>
-						<string>raindrops</string>
-						<key>uid</key>
-						<string>B23F2D5F-EB7C-4966-98BF-2BF9E4E0D65A</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>AF040EE9-6395-4608-95C8-470061CB50D5</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -414,7 +461,7 @@
 				<key>runningsubtext</key>
 				<string>loading...</string>
 				<key>script</key>
-				<string>./raindrop-alfred-workflow $accessToken collections</string>
+				<string>./raindrop-alfred-workflow -accessToken $accessToken -collections</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -434,6 +481,50 @@
 			<string>54BE08D0-4E9A-4DED-8E71-3107B6E05A1E</string>
 			<key>version</key>
 			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>raindrops</string>
+						<key>outputlabel</key>
+						<string>raindrops</string>
+						<key>uid</key>
+						<string>B23F2D5F-EB7C-4966-98BF-2BF9E4E0D65A</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>collections</string>
+						<key>outputlabel</key>
+						<string>collections</string>
+						<key>uid</key>
+						<string>3F9651B5-DC8E-4050-8ADF-42B6F7D1DF88</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>tags</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>AF040EE9-6395-4608-95C8-470061CB50D5</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -461,7 +552,7 @@
 				<key>runningsubtext</key>
 				<string>loading...</string>
 				<key>script</key>
-				<string>./raindrop-alfred-workflow $accessToken raindrops $id</string>
+				<string>./raindrop-alfred-workflow -accessToken $accessToken -raindrops -collectionId $id</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -542,11 +633,172 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading...</string>
+				<key>script</key>
+				<string>./raindrop-alfred-workflow -accessToken $accessToken -tags</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>C46BD3F2-5F1B-4B39-907A-46976110B181</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>loading...</string>
+				<key>script</key>
+				<string>./raindrop-alfred-workflow -accessToken $accessToken -raindrops -tag $tag</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3B85136C-4E78-432D-9497-1BAB3927F36C</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>.+</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>03442BBF-D1E0-406A-BBCA-12FBE16F9F02</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string>{query}</string>
+				<key>variables</key>
+				<dict>
+					<key>tag</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>D178BAE2-6D77-4151-B2C2-6B0B9838D952</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>.+</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>617D16A1-B930-46E7-98A9-38F979754A26</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>03442BBF-D1E0-406A-BBCA-12FBE16F9F02</key>
+		<dict>
+			<key>xpos</key>
+			<integer>335</integer>
+			<key>ypos</key>
+			<integer>440</integer>
+		</dict>
 		<key>0A2287AE-9EED-4768-A224-4801D1A7935B</key>
 		<dict>
 			<key>xpos</key>
@@ -575,6 +827,13 @@
 			<key>ypos</key>
 			<integer>280</integer>
 		</dict>
+		<key>3B85136C-4E78-432D-9497-1BAB3927F36C</key>
+		<dict>
+			<key>xpos</key>
+			<integer>720</integer>
+			<key>ypos</key>
+			<integer>410</integer>
+		</dict>
 		<key>4386CB78-A4B9-49C3-AA6C-8ADA3F0E3DE5</key>
 		<dict>
 			<key>xpos</key>
@@ -596,10 +855,17 @@
 			<key>ypos</key>
 			<integer>280</integer>
 		</dict>
+		<key>617D16A1-B930-46E7-98A9-38F979754A26</key>
+		<dict>
+			<key>xpos</key>
+			<integer>650</integer>
+			<key>ypos</key>
+			<integer>440</integer>
+		</dict>
 		<key>8C58DFD2-45BA-4B05-B6CE-D1CBCB6E86F3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>910</integer>
+			<integer>915</integer>
 			<key>ypos</key>
 			<integer>190</integer>
 		</dict>
@@ -615,14 +881,21 @@
 			<key>xpos</key>
 			<integer>225</integer>
 			<key>ypos</key>
-			<integer>220</integer>
+			<integer>280</integer>
+		</dict>
+		<key>C46BD3F2-5F1B-4B39-907A-46976110B181</key>
+		<dict>
+			<key>xpos</key>
+			<integer>415</integer>
+			<key>ypos</key>
+			<integer>410</integer>
 		</dict>
 		<key>CD066BCB-7DBF-4F99-B4F3-C744F63D0BD9</key>
 		<dict>
 			<key>xpos</key>
 			<integer>430</integer>
 			<key>ypos</key>
-			<integer>75</integer>
+			<integer>70</integer>
 		</dict>
 		<key>D0910FC2-3A69-48A4-858D-95831D63D7D3</key>
 		<dict>
@@ -630,6 +903,13 @@
 			<integer>75</integer>
 			<key>ypos</key>
 			<integer>200</integer>
+		</dict>
+		<key>D178BAE2-6D77-4151-B2C2-6B0B9838D952</key>
+		<dict>
+			<key>xpos</key>
+			<integer>575</integer>
+			<key>ypos</key>
+			<integer>440</integer>
 		</dict>
 		<key>F1102AAA-7951-4A09-B219-80957E1CD9B9</key>
 		<dict>

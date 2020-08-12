@@ -3,6 +3,8 @@ package alfred
 import (
 	"encoding/json"
 	"fmt"
+	"net/url"
+	"strings"
 
 	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
 )
@@ -13,6 +15,7 @@ type Item struct {
 	Title    string `json:"title"`
 	SubTitle string `json:"subtitle"`
 	Arg      string `json:"arg"`
+	Match    string `json:"match"`
 }
 
 // Items ia an array of items
@@ -75,22 +78,39 @@ func newItemFromCollection(collection raindrop.Collection) Item {
 		UID:   fmt.Sprint(collection.ID),
 		Title: collection.Title,
 		Arg:   fmt.Sprint(collection.ID),
+		Match: collection.Title,
 	}
 }
 
 func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
+
+	u, err := url.Parse(raindrop.Link)
+	if err != nil {
+		return Item{
+			UID:      raindrop.Title,
+			Title:    raindrop.Title,
+			SubTitle: raindrop.Excerpt,
+			Arg:      raindrop.Link,
+			Match:    raindrop.Title,
+		}
+	}
+
+	host := strings.Replace(u.Hostname(), ".", " ", -1)
+	path := strings.Replace(u.Path, "/", " ", -1)
 	return Item{
 		UID:      raindrop.Title,
 		Title:    raindrop.Title,
 		SubTitle: raindrop.Excerpt,
 		Arg:      raindrop.Link,
+		Match:    fmt.Sprintf("%s %s %s", raindrop.Title, host, path),
 	}
 }
 
 func newItemFromTag(tag raindrop.Tag) Item {
 	return Item{
-		UID:   fmt.Sprint(tag.ID),
+		UID:   tag.ID,
 		Title: tag.ID,
-		Arg:   fmt.Sprint(tag.ID),
+		Arg:   tag.ID,
+		Match: tag.ID,
 	}
 }

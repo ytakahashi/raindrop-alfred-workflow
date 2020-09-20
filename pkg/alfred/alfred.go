@@ -9,13 +9,27 @@ import (
 	"github.com/ytakahashi/raindrop-alfred-workflow/pkg/raindrop"
 )
 
+// Mod controls how the modifier keys react
+type Mod struct {
+	Valid    bool   `json:"valid"`
+	Arg      string `json:"arg"`
+	Subtitle string `json:"subtitle"`
+}
+
+// Mods is modifier commands
+type Mods struct {
+	Cmd Mod `json:"cmd"`
+}
+
 // Item is an alfred item (https://www.alfredapp.com/help/workflows/inputs/script-filter/json/)
 type Item struct {
-	UID      string `json:"uid"`
-	Title    string `json:"title"`
-	SubTitle string `json:"subtitle"`
-	Arg      string `json:"arg"`
-	Match    string `json:"match"`
+	UID          string `json:"uid"`
+	Title        string `json:"title"`
+	SubTitle     string `json:"subtitle"`
+	Arg          string `json:"arg"`
+	Match        string `json:"match"`
+	QuickLookURL string `json:"quicklookurl"`
+	Mods         Mods   `json:"mods"`
 }
 
 // Items ia an array of items
@@ -98,11 +112,19 @@ func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
 	host := strings.Replace(u.Hostname(), ".", " ", -1)
 	path := strings.Replace(u.Path, "/", " ", -1)
 	return Item{
-		UID:      raindrop.Title,
-		Title:    raindrop.Title,
-		SubTitle: raindrop.Excerpt,
-		Arg:      raindrop.Link,
-		Match:    fmt.Sprintf("%s %s %s", raindrop.Title, host, path),
+		UID:          raindrop.Title,
+		Title:        raindrop.Title,
+		SubTitle:     raindrop.Excerpt,
+		Arg:          raindrop.Link,
+		Match:        fmt.Sprintf("%s %s %s", raindrop.Title, host, path),
+		QuickLookURL: raindrop.Link,
+		Mods: Mods{
+			Cmd: Mod{
+				Valid:    true,
+				Arg:      raindrop.Link,
+				Subtitle: fmt.Sprintf("Cmd + C to copy %s", raindrop.Link),
+			},
+		},
 	}
 }
 

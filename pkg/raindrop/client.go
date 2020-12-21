@@ -106,12 +106,16 @@ func (c *Client) GetCollections() (*Collections, error) {
 }
 
 // GetRaindrops call Get raindrops API (refs. https://developer.raindrop.io/v1/raindrops/multiple#get-raindrops)
-func (c *Client) GetRaindrops(collectionID string) (*Raindrops, error) {
+func (c *Client) GetRaindrops(collectionID string, perpage int) (*Raindrops, error) {
 	path := fmt.Sprintf("/rest/v1/raindrops/%s", collectionID)
 	req, err := c.newRequest("GET", path)
 	if err != nil {
 		return nil, err
 	}
+
+	query := req.URL.Query()
+	query.Add("perpage", fmt.Sprint(perpage))
+	req.URL.RawQuery = query.Encode()
 
 	response, err := c.httpClient.Do(req)
 	if err != nil {
@@ -197,10 +201,9 @@ func (c *Client) newRequest(method string, apiPath string) (*http.Request, error
 }
 
 func parseResponse(response *http.Response, expectedStatus int, clazz interface{}) error {
+	defer response.Body.Close()
 	if response.StatusCode != expectedStatus {
 		return fmt.Errorf("Unexpected Status Code: %d", response.StatusCode)
 	}
-
-	defer response.Body.Close()
 	return json.NewDecoder(response.Body).Decode(clazz)
 }

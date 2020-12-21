@@ -20,7 +20,7 @@ Activate Alfred and `^⌘R` triggers this workflow.
 
 ![workflow image](./image/workflow_image_1.png)
 
-`Raindrops` calls [Get raindrops API](https://developer.raindrop.io/v1/raindrops/multiple#get-raindrops).
+`Raindrops` calls [Get raindrops API](https://developer.raindrop.io/v1/raindrops/multiple#get-raindrops). Returns max 50 items in descending order of created date.
 
 `Collections` calls [Get root collections API](https://developer.raindrop.io/v1/collections/methods#get-root-collections).
 

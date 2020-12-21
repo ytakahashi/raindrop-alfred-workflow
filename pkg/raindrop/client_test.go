@@ -61,7 +61,7 @@ func Test_GetRaindrops(t *testing.T) {
 	sut := createTestClient(ts, t)
 
 	// Then
-	actual, err := sut.GetRaindrops("1")
+	actual, err := sut.GetRaindrops("1", 50)
 	if err != nil {
 		t.Errorf("error: %v", err)
 	}

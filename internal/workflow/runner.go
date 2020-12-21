@@ -45,7 +45,7 @@ func (r getRaindropScenarioRunner) Run() {
 		os.Exit(1)
 	}
 
-	res, err := client.GetRaindrops("0")
+	res, err := client.GetRaindrops("0", 50)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -63,7 +63,7 @@ func (r getRaindropsByCollectionIDScenarioRunner) Run() {
 		os.Exit(1)
 	}
 
-	res, err := client.GetRaindrops(r.collectionID)
+	res, err := client.GetRaindrops(r.collectionID, 50)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)

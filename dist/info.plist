@@ -366,13 +366,13 @@
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
-				<false/>
+				<true/>
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string></string>
+				<string>{query}</string>
 				<key>title</key>
-				<string></string>
+				<string>Opened following URL:</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -399,7 +399,7 @@
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"Collections","arg":"collections","subtitle":"searches collections"},{"title":"Raindrops","arg":"raindrops","subtitle":"searches all raindrops"},{"title":"Tags","arg":"tags","subtitle":"searches tags"}]</string>
+				<string>[{"title":"Collections","arg":"collections","subtitle":"Lists collections"},{"title":"Raindrops","arg":"raindrops","subtitle":"Lists all raindrops"},{"title":"Tags","arg":"tags","subtitle":"Lists tags"}]</string>
 				<key>runningsubtext</key>
 				<string></string>
 				<key>subtext</key>
@@ -599,6 +599,8 @@
 			<dict>
 				<key>argument</key>
 				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
 				<key>variables</key>
 				<dict>
 					<key>id</key>
@@ -753,6 +755,8 @@
 			<dict>
 				<key>argument</key>
 				<string>{query}</string>
+				<key>passthroughargument</key>
+				<false/>
 				<key>variables</key>
 				<dict>
 					<key>tag</key>

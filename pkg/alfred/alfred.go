@@ -89,10 +89,11 @@ func ConvertToAlfredJSONFromTags(tags raindrop.Tags) string {
 
 func newItemFromCollection(collection raindrop.Collection) Item {
 	return Item{
-		UID:   fmt.Sprint(collection.ID),
-		Title: collection.Title,
-		Arg:   fmt.Sprint(collection.ID),
-		Match: collection.Title,
+		UID:      fmt.Sprint(collection.ID),
+		Title:    collection.Title,
+		SubTitle: fmt.Sprintf("%d items", collection.Count),
+		Arg:      fmt.Sprint(collection.ID),
+		Match:    collection.Title,
 	}
 }
 
@@ -122,7 +123,7 @@ func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
 			Cmd: Mod{
 				Valid:    true,
 				Arg:      raindrop.Link,
-				Subtitle: fmt.Sprintf("Cmd + C to copy %s", raindrop.Link),
+				Subtitle: fmt.Sprintf("Cmd + c to copy %s, Cmd + y to Quick Look", raindrop.Link),
 			},
 		},
 	}
@@ -130,9 +131,10 @@ func newItemFromRaindrop(raindrop raindrop.Raindrop) Item {
 
 func newItemFromTag(tag raindrop.Tag) Item {
 	return Item{
-		UID:   tag.ID,
-		Title: tag.ID,
-		Arg:   tag.ID,
-		Match: tag.ID,
+		UID:      tag.ID,
+		Title:    tag.ID,
+		SubTitle: fmt.Sprintf("%d items", tag.Count),
+		Arg:      tag.ID,
+		Match:    tag.ID,
 	}
 }

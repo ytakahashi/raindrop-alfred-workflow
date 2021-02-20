@@ -28,7 +28,7 @@ func Test_ConvertToAlfredJSONFromRaindrop(t *testing.T) {
 	actual := ConvertToAlfredJSONFromRaindrops(raindrops)
 
 	// Then
-	expected := `{"items":[{"uid":"Test 1","title":"Test 1","subtitle":"excerpt 1","arg":"https://example.com/page/1","match":"Test 1 example com  page 1","quicklookurl":"https://example.com/page/1","mods":{"cmd":{"valid":true,"arg":"https://example.com/page/1","subtitle":"Cmd + C to copy https://example.com/page/1"}}},{"uid":"Test 2","title":"Test 2","subtitle":"excerpt 2","arg":"https://example.com/page/2/","match":"Test 2 example com  page 2 ","quicklookurl":"https://example.com/page/2/","mods":{"cmd":{"valid":true,"arg":"https://example.com/page/2/","subtitle":"Cmd + C to copy https://example.com/page/2/"}}}]}`
+	expected := `{"items":[{"uid":"Test 1","title":"Test 1","subtitle":"excerpt 1","arg":"https://example.com/page/1","match":"Test 1 example com  page 1","quicklookurl":"https://example.com/page/1","mods":{"cmd":{"valid":true,"arg":"https://example.com/page/1","subtitle":"Cmd + c to copy https://example.com/page/1, Cmd + y to Quick Look"}}},{"uid":"Test 2","title":"Test 2","subtitle":"excerpt 2","arg":"https://example.com/page/2/","match":"Test 2 example com  page 2 ","quicklookurl":"https://example.com/page/2/","mods":{"cmd":{"valid":true,"arg":"https://example.com/page/2/","subtitle":"Cmd + c to copy https://example.com/page/2/, Cmd + y to Quick Look"}}}]}`
 	if actual != expected {
 		t.Errorf("assert failed. expect:%v actual:%v", expected, actual)
 	}
@@ -39,10 +39,12 @@ func Test_ConvertToAlfredJSONFromCollections(t *testing.T) {
 	collection1 := raindrop.Collection{
 		ID:    1,
 		Title: "Test 1",
+		Count: 5,
 	}
 	collection2 := raindrop.Collection{
 		ID:    2,
 		Title: "Test 2",
+		Count: 10,
 	}
 	collections := raindrop.Collections{
 		Result: true,
@@ -53,7 +55,7 @@ func Test_ConvertToAlfredJSONFromCollections(t *testing.T) {
 	actual := ConvertToAlfredJSONFromCollections(collections)
 
 	// Then
-	expected := `{"items":[{"uid":"1","title":"Test 1","subtitle":"","arg":"1","match":"Test 1","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}},{"uid":"2","title":"Test 2","subtitle":"","arg":"2","match":"Test 2","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}}]}`
+	expected := `{"items":[{"uid":"1","title":"Test 1","subtitle":"5 items","arg":"1","match":"Test 1","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}},{"uid":"2","title":"Test 2","subtitle":"10 items","arg":"2","match":"Test 2","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}}]}`
 	if actual != expected {
 		t.Errorf("assert failed. expect:%v actual:%v", expected, actual)
 	}
@@ -78,7 +80,7 @@ func Test_ConvertToAlfredJSONFromTags(t *testing.T) {
 	actual := ConvertToAlfredJSONFromTags(tags)
 
 	// Then
-	expected := `{"items":[{"uid":"tag 1","title":"tag 1","subtitle":"","arg":"tag 1","match":"tag 1","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}},{"uid":"tag 2","title":"tag 2","subtitle":"","arg":"tag 2","match":"tag 2","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}}]}`
+	expected := `{"items":[{"uid":"tag 1","title":"tag 1","subtitle":"123 items","arg":"tag 1","match":"tag 1","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}},{"uid":"tag 2","title":"tag 2","subtitle":"456 items","arg":"tag 2","match":"tag 2","quicklookurl":"","mods":{"cmd":{"valid":false,"arg":"","subtitle":""}}}]}`
 	if actual != expected {
 		t.Errorf("assert failed. expect:%v actual:%v", expected, actual)
 	}

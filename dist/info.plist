@@ -47,6 +47,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>1EF75ECD-871B-4BEE-A72A-B9EB7F02FB83</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>96EC3E0A-AFE3-4B41-8E89-2BAD2551B4D7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>2137144C-1EE3-4BB9-ABE1-AD5C5DF868F4</key>
 		<array>
 			<dict>
@@ -378,37 +391,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>15</integer>
-				<key>hotmod</key>
-				<integer>1310720</integer>
-				<key>hotstring</key>
-				<string>R</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>4750F221-5446-4FD8-AC05-9EA6D1CD38A2</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>alfredfiltersresults</key>
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -471,6 +453,37 @@
 			<string>alfred.workflow.utility.replace</string>
 			<key>uid</key>
 			<string>CD066BCB-7DBF-4F99-B4F3-C744F63D0BD9</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>15</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>R</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>4750F221-5446-4FD8-AC05-9EA6D1CD38A2</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -800,6 +813,27 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>r</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Raindrop Workflow</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>1EF75ECD-871B-4BEE-A72A-B9EB7F02FB83</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>matchmode</key>
 				<integer>1</integer>
 				<key>matchstring</key>
@@ -1032,126 +1066,133 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<key>03442BBF-D1E0-406A-BBCA-12FBE16F9F02</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>820</integer>
 			<key>ypos</key>
 			<integer>440</integer>
 		</dict>
 		<key>0A2287AE-9EED-4768-A224-4801D1A7935B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1010</integer>
+			<integer>1060</integer>
 			<key>ypos</key>
 			<integer>310</integer>
 		</dict>
 		<key>1027FBB1-9938-48CD-B1BF-E5C2CA94FA42</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1450</integer>
+			<integer>1500</integer>
 			<key>ypos</key>
 			<integer>90</integer>
 		</dict>
 		<key>145DC09B-0C09-489A-9CED-BD1EC649D9D8</key>
 		<dict>
 			<key>xpos</key>
-			<integer>770</integer>
+			<integer>820</integer>
 			<key>ypos</key>
 			<integer>310</integer>
+		</dict>
+		<key>1EF75ECD-871B-4BEE-A72A-B9EB7F02FB83</key>
+		<dict>
+			<key>xpos</key>
+			<integer>10</integer>
+			<key>ypos</key>
+			<integer>295</integer>
 		</dict>
 		<key>2137144C-1EE3-4BB9-ABE1-AD5C5DF868F4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>660</integer>
+			<integer>710</integer>
 			<key>ypos</key>
 			<integer>255</integer>
 		</dict>
 		<key>225F85FF-9918-4FE7-90A6-84B3AE15AC2A</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1155</integer>
+			<integer>1205</integer>
 			<key>ypos</key>
 			<integer>280</integer>
 		</dict>
 		<key>3B85136C-4E78-432D-9497-1BAB3927F36C</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1155</integer>
+			<integer>1205</integer>
 			<key>ypos</key>
 			<integer>410</integer>
 		</dict>
 		<key>4386CB78-A4B9-49C3-AA6C-8ADA3F0E3DE5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1155</integer>
+			<integer>1205</integer>
 			<key>ypos</key>
 			<integer>40</integer>
 		</dict>
 		<key>47290404-2BBE-4A7C-AC03-35341F73BB2E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>475</integer>
+			<integer>525</integer>
 			<key>ypos</key>
 			<integer>140</integer>
 		</dict>
 		<key>4750F221-5446-4FD8-AC05-9EA6D1CD38A2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>30</integer>
+			<integer>10</integer>
 			<key>ypos</key>
-			<integer>20</integer>
+			<integer>80</integer>
 		</dict>
 		<key>54BE08D0-4E9A-4DED-8E71-3107B6E05A1E</key>
 		<dict>
 			<key>xpos</key>
-			<integer>850</integer>
+			<integer>900</integer>
 			<key>ypos</key>
 			<integer>280</integer>
 		</dict>
 		<key>617D16A1-B930-46E7-98A9-38F979754A26</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1085</integer>
+			<integer>1135</integer>
 			<key>ypos</key>
 			<integer>440</integer>
 		</dict>
 		<key>8C58DFD2-45BA-4B05-B6CE-D1CBCB6E86F3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1350</integer>
+			<integer>1400</integer>
 			<key>ypos</key>
 			<integer>190</integer>
 		</dict>
 		<key>8DB47987-A482-435E-9C9B-831BAA61591D</key>
 		<dict>
 			<key>xpos</key>
-			<integer>665</integer>
+			<integer>715</integer>
 			<key>ypos</key>
 			<integer>170</integer>
 		</dict>
 		<key>96EC3E0A-AFE3-4B41-8E89-2BAD2551B4D7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>115</integer>
+			<integer>165</integer>
 			<key>ypos</key>
 			<integer>210</integer>
 		</dict>
 		<key>9FE276A8-467F-40FC-AED3-C6B692E4BFCC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1085</integer>
+			<integer>1135</integer>
 			<key>ypos</key>
 			<integer>310</integer>
 		</dict>
 		<key>AF040EE9-6395-4608-95C8-470061CB50D5</key>
 		<dict>
 			<key>xpos</key>
-			<integer>475</integer>
+			<integer>525</integer>
 			<key>ypos</key>
 			<integer>280</integer>
 		</dict>
 		<key>C46BD3F2-5F1B-4B39-907A-46976110B181</key>
 		<dict>
 			<key>xpos</key>
-			<integer>850</integer>
+			<integer>900</integer>
 			<key>ypos</key>
 			<integer>410</integer>
 		</dict>
@@ -1165,35 +1206,35 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<key>D0910FC2-3A69-48A4-858D-95831D63D7D3</key>
 		<dict>
 			<key>xpos</key>
-			<integer>310</integer>
+			<integer>360</integer>
 			<key>ypos</key>
 			<integer>275</integer>
 		</dict>
 		<key>D178BAE2-6D77-4151-B2C2-6B0B9838D952</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1010</integer>
+			<integer>1060</integer>
 			<key>ypos</key>
 			<integer>440</integer>
 		</dict>
 		<key>D957DCE6-D792-4C50-9728-9C9F81DB1635</key>
 		<dict>
 			<key>xpos</key>
-			<integer>200</integer>
+			<integer>250</integer>
 			<key>ypos</key>
 			<integer>200</integer>
 		</dict>
 		<key>F1102AAA-7951-4A09-B219-80957E1CD9B9</key>
 		<dict>
 			<key>xpos</key>
-			<integer>1450</integer>
+			<integer>1500</integer>
 			<key>ypos</key>
 			<integer>230</integer>
 		</dict>
 		<key>FA15C129-649B-4B57-B777-757C974D1594</key>
 		<dict>
 			<key>xpos</key>
-			<integer>655</integer>
+			<integer>705</integer>
 			<key>ypos</key>
 			<integer>335</integer>
 		</dict>
@@ -1211,7 +1252,7 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<string>default</string>
 	</array>
 	<key>version</key>
-	<string>0.3.0</string>
+	<string>0.3.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/ytakahashi/raindrop-alfred-workflow</string>
 </dict>

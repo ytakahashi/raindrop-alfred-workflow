@@ -343,13 +343,25 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>47290404-2BBE-4A7C-AC03-35341F73BB2E</string>
+				<string>12F1B951-CB77-47EF-876B-56683F75D96A</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
 				<string></string>
 				<key>sourceoutputuid</key>
 				<string>0756662C-B362-4326-ADD4-EC59658F04BB</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>47290404-2BBE-4A7C-AC03-35341F73BB2E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>73E8A898-53E6-49CF-9A80-498F965BB876</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -388,6 +400,27 @@
 	<string>Raindrop Workflow</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>"{var:target}" does not match "raindrops/collections/tags"</string>
+				<key>title</key>
+				<string>Raindrop Workflow: Invalid "target"</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>12F1B951-CB77-47EF-876B-56683F75D96A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -515,7 +548,7 @@
 				<array>
 					<dict>
 						<key>inputstring</key>
-						<string>{var:default}</string>
+						<string>{var:target}</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
@@ -529,7 +562,7 @@
 					</dict>
 					<dict>
 						<key>inputstring</key>
-						<string>{var:default}</string>
+						<string>{var:target}</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
@@ -575,7 +608,7 @@
 				<array>
 					<dict>
 						<key>inputstring</key>
-						<string>{var:default}</string>
+						<string>{var:target}</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
@@ -583,7 +616,21 @@
 						<key>matchstring</key>
 						<string>raindrops|collections|tags</string>
 						<key>outputlabel</key>
-						<string>defaults</string>
+						<string>ok</string>
+						<key>uid</key>
+						<string>73E8A898-53E6-49CF-9A80-498F965BB876</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:target}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>4</integer>
+						<key>matchstring</key>
+						<string>.+</string>
+						<key>outputlabel</key>
+						<string>invalid</string>
 						<key>uid</key>
 						<string>0756662C-B362-4326-ADD4-EC59658F04BB</string>
 					</dict>
@@ -607,8 +654,8 @@
 				<false/>
 				<key>variables</key>
 				<dict>
-					<key>default</key>
-					<string>{var:default}</string>
+					<key>target</key>
+					<string>{var:target}</string>
 				</dict>
 			</dict>
 			<key>type</key>
@@ -1084,6 +1131,13 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 			<key>ypos</key>
 			<integer>90</integer>
 		</dict>
+		<key>12F1B951-CB77-47EF-876B-56683F75D96A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>360</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
 		<key>145DC09B-0C09-489A-9CED-BD1EC649D9D8</key>
 		<dict>
 			<key>xpos</key>
@@ -1131,7 +1185,7 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 			<key>xpos</key>
 			<integer>525</integer>
 			<key>ypos</key>
-			<integer>140</integer>
+			<integer>135</integer>
 		</dict>
 		<key>4750F221-5446-4FD8-AC05-9EA6D1CD38A2</key>
 		<dict>
@@ -1171,9 +1225,9 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<key>96EC3E0A-AFE3-4B41-8E89-2BAD2551B4D7</key>
 		<dict>
 			<key>xpos</key>
-			<integer>165</integer>
+			<integer>185</integer>
 			<key>ypos</key>
-			<integer>210</integer>
+			<integer>215</integer>
 		</dict>
 		<key>9FE276A8-467F-40FC-AED3-C6B692E4BFCC</key>
 		<dict>
@@ -1220,9 +1274,9 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<key>D957DCE6-D792-4C50-9728-9C9F81DB1635</key>
 		<dict>
 			<key>xpos</key>
-			<integer>250</integer>
+			<integer>255</integer>
 			<key>ypos</key>
-			<integer>200</integer>
+			<integer>190</integer>
 		</dict>
 		<key>F1102AAA-7951-4A09-B219-80957E1CD9B9</key>
 		<dict>
@@ -1243,13 +1297,13 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 	<dict>
 		<key>accessToken</key>
 		<string></string>
-		<key>default</key>
+		<key>target</key>
 		<string></string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>accessToken</string>
-		<string>default</string>
+		<string>target</string>
 	</array>
 	<key>version</key>
 	<string>0.3.1</string>

@@ -10,13 +10,21 @@ This workflow utilizes [Raindrop.io API](https://developer.raindrop.io).
 
 ## How to use
 
+### Import workflow
+
 Download a latest package from [release page](https://github.com/ytakahashi/raindrop-alfred-workflow/releases) and install.
 
-When installing this workflow, variable named "accessToken" should be configured.
+You can see two configurable (`accessToken` and `target`) variables as below:
+
+![import image](./image/import.png)
+
+To use this workflow, `accessToken` is required to access [Raindrop.io API](https://developer.raindrop.io).
 
 You can obtain your access token to follow [this document](https://developer.raindrop.io/v1/authentication/token). I recommend to use test token because this workflow does not access any data except your account.
 
-Activate Alfred and `^⌘R` triggers this workflow.  
+`target` is an optional variable (see below).
+
+### Trigger workflow
 
 ![workflow image](./image/workflow_image_1.png)
 
@@ -25,3 +33,8 @@ Activate Alfred and `^⌘R` triggers this workflow.
 `Collections` calls [Get root collections API](https://developer.raindrop.io/v1/collections/methods#get-root-collections).
 
 `Tags` calls [Get tags API](https://developer.raindrop.io/v1/tags#get-tags).
+
+#### Configure list target
+
+By configuring `target` variable, you can skip selecting Raindrops/Collections/Tags.  
+Note that `target` should be one of `raindrops`/`collections`/`tags`.

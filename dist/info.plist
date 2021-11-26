@@ -1306,7 +1306,7 @@ See https://github.com/ytakahashi/raindrop-alfred-workflow for details.</string>
 		<string>target</string>
 	</array>
 	<key>version</key>
-	<string>0.3.1</string>
+	<string>0.4.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/ytakahashi/raindrop-alfred-workflow</string>
 </dict>

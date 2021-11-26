@@ -12,9 +12,9 @@ This workflow utilizes [Raindrop.io API](https://developer.raindrop.io).
 
 ### Import workflow
 
-Download a latest package from [release page](https://github.com/ytakahashi/raindrop-alfred-workflow/releases) and import it (ref. [Importing and Setting Up Alfred Workflows](https://www.alfredapp.com/blog/tips-and-tricks/tutorial-importing-and-setting-up-alfred-workflows/)).
+Download the latest *.alfredworkflow* file from [release page](https://github.com/ytakahashi/raindrop-alfred-workflow/releases) and import it (ref. [Importing and Setting Up Alfred Workflows](https://www.alfredapp.com/blog/tips-and-tricks/tutorial-importing-and-setting-up-alfred-workflows/)).
 
-You can see two configurable (`accessToken` and `target`) variables as below:
+You can see two configurable variables (`accessToken` and `target`) as below:
 
 ![import image](./image/import.png)
 

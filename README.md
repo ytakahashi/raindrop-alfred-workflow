@@ -22,7 +22,7 @@ To use this workflow, `accessToken` is required to access [Raindrop.io API](http
 
 You can obtain your access token to follow [this document](https://developer.raindrop.io/v1/authentication/token). I recommend to use test token because this workflow does not access any data except your account.
 
-`target` is an optional variable (see [below]((#configure-list-target))).
+`target` is an optional variable (see [below](#configure-list-target)).
 
 ### Set up workflow
 

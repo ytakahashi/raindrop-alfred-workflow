@@ -12,7 +12,7 @@ This workflow utilizes [Raindrop.io API](https://developer.raindrop.io).
 
 ### Import workflow
 
-Download a latest package from [release page](https://github.com/ytakahashi/raindrop-alfred-workflow/releases) and install.
+Download a latest package from [release page](https://github.com/ytakahashi/raindrop-alfred-workflow/releases) and import it (ref. [Importing and Setting Up Alfred Workflows](https://www.alfredapp.com/blog/tips-and-tricks/tutorial-importing-and-setting-up-alfred-workflows/)).
 
 You can see two configurable (`accessToken` and `target`) variables as below:
 
@@ -22,9 +22,16 @@ To use this workflow, `accessToken` is required to access [Raindrop.io API](http
 
 You can obtain your access token to follow [this document](https://developer.raindrop.io/v1/authentication/token). I recommend to use test token because this workflow does not access any data except your account.
 
-`target` is an optional variable (see below).
+`target` is an optional variable (see [below]((#configure-list-target))).
 
-### Trigger workflow
+### Set up workflow
+
+This workflow contains [hotkey](https://www.alfredapp.com/help/workflows/triggers/hotkey), but hotkeys are stripped out when you import the workflow.  
+You can set by double-clicking the hotkey object (upper left object).  
+
+![hotkey](./image/hotkey.png)
+
+Trigger the hotkey you set or type `r` into Alfred to invoke this workflow.
 
 ![workflow image](./image/workflow_image_1.png)
 
@@ -34,7 +41,7 @@ You can obtain your access token to follow [this document](https://developer.rai
 
 `Tags` calls [Get tags API](https://developer.raindrop.io/v1/tags#get-tags).
 
-#### Configure list target
+### Configure list target
 
 By configuring `target` variable, you can skip selecting Raindrops/Collections/Tags.  
 Note that `target` should be one of `raindrops`/`collections`/`tags`.
